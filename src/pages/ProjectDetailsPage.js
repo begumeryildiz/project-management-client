@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import AddTask from "../components/AddTask";
+import TaskCard from "../components/TaskCard";
 
 
 function ProjectDetailsPage(props) {
@@ -36,22 +37,17 @@ function ProjectDetailsPage(props) {
                     <p>{project.description}</p>
                 </>
             )}
-            
+
             <AddTask refreshProject={getProject} projectId={projectId} />
 
-            {project &&
-                project.tasks.map((task) => (
-                    <li className="TaskCard card" key={task._id}>
-                        <h3>{task.title}</h3>
-                        <h4>Description:</h4>
-                        <p>{task.description}</p>
-                    </li>
-                ))}
+            {project && project.tasks.map((task) => (
+                <TaskCard key={task._id} {...task} />
+            ))}
 
             <br />
             <Link to={`/projects/edit/${projectId}`}>
                 <button>Edit Project</button>
-            </Link><br /><br/>
+            </Link><br /><br />
 
             <Link to="/projects">
                 <button>Back to projects</button>
