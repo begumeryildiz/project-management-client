@@ -22,7 +22,7 @@ function EditProjectPage(props) {
     
   }, [projectId]);
   
-  const handleFormSubmit = (e) => {                     // <== ADD
+  const handleFormSubmit = (e) => {                     
     e.preventDefault();
     // Create an object representing the body of the PUT request
     const requestBody = { title, description };
@@ -36,6 +36,18 @@ function EditProjectPage(props) {
         navigate(`/projects/${projectId}`)
       });
   };
+
+  const deleteProject = () => {                    //  <== ADD
+    // Make a DELETE request to delete the project
+    axios
+      .delete(`${process.env.REACT_APP_API_URL}/api/projects/${projectId}`)
+      .then(() => {
+        // Once the delete request is resolved successfully
+        // navigate back to the list of projects.
+        navigate("/projects");
+      })
+      .catch((err) => console.log(err));
+  };  
   
   return (
     <div className="EditProjectPage">
@@ -59,6 +71,7 @@ function EditProjectPage(props) {
 
         <button type="submit">Update Project</button>
       </form>
+      <button onClick={deleteProject}>Delete Project</button>
     </div>
   );
 }
