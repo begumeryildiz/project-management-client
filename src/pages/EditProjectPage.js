@@ -70,7 +70,7 @@ function EditProjectPage(props) {
         />
 
         <button type="submit">Update Project</button>
-      </form>
+      </form><br />
       <button onClick={deleteProject}>Delete Project</button>
     </div>
   );
