@@ -15,7 +15,7 @@ function ProjectDetailsPage(props) {
     // and retrieves the project by id
     const getProject = () => {          //  <== ADD A NEW FUNCTION
         axios
-            .get(`${process.env.REACT_APP_API_URL}/api/projects/${projectId}`)
+            .get(`${process.env.REACT_APP_API_URL}/projects/${projectId}`)
             .then((response) => {
                 const oneProject = response.data;
                 setProject(oneProject);

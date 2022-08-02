@@ -12,7 +12,7 @@ function ProjectListPage() {
 
     const getAllProjects = () => {
         axios
-            .get(`${process.env.REACT_APP_API_URL}/api/projects`)
+            .get(`${process.env.REACT_APP_API_URL}/projects`)
             .then((response) => setProjects(response.data))
             .catch((error) => console.log(error));
     };

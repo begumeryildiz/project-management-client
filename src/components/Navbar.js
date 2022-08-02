@@ -19,8 +19,8 @@ function Navbar() {
 
             {!isLoggedIn && (
                 <>
-                    <NavLink to="/signup"> <button>Sign Up</button> </NavLink> |
-                    <NavLink to="/login"> <button>Login</button> </NavLink>
+                    <NavLink to="/signup">Sign Up</NavLink> |
+                    <NavLink to="/login">Login</NavLink>
                 </>
             )}
         </nav>

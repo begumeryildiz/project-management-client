@@ -12,7 +12,7 @@ function EditProjectPage(props) {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/api/projects/${projectId}`)
+      .get(`${process.env.REACT_APP_API_URL}/projects/${projectId}`)
       .then((response) => {
         const oneProject = response.data;
         setTitle(oneProject.title);
@@ -29,7 +29,7 @@ function EditProjectPage(props) {
 
     // Make a PUT request to update the project
     axios
-      .put(`${process.env.REACT_APP_API_URL}/api/projects/${projectId}`, requestBody)
+      .put(`${process.env.REACT_APP_API_URL}/projects/${projectId}`, requestBody)
       .then((response) => {
         // Once the request is resolved successfully and the project
         // is updated we navigate back to the details page
@@ -40,7 +40,7 @@ function EditProjectPage(props) {
   const deleteProject = () => {                    //  <== ADD
     // Make a DELETE request to delete the project
     axios
-      .delete(`${process.env.REACT_APP_API_URL}/api/projects/${projectId}`)
+      .delete(`${process.env.REACT_APP_API_URL}/projects/${projectId}`)
       .then(() => {
         // Once the delete request is resolved successfully
         // navigate back to the list of projects.
