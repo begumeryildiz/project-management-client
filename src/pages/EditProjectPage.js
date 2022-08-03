@@ -49,7 +49,6 @@ function EditProjectPage(props) {
     axios
     .delete(
       `${process.env.REACT_APP_API_URL}/projects`, 
-      requestBody,
       { headers: { Authorization: `Bearer ${storedToken}` } }
   )
       .then(() => {
