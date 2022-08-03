@@ -10,6 +10,8 @@ import EditProjectPage from "./pages/EditProjectPage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 
+import IsPrivate from "./components/IsPrivate";
+
 function App() {
   return (
     <div className="App">
@@ -20,7 +22,8 @@ function App() {
         <Route path="/" element={ <HomePage /> } />
         <Route path="/projects" element={ <ProjectListPage /> } />
         <Route path="/projects/:projectId" element={<ProjectDetailsPage /> } />
-        <Route path="/projects/edit/:projectId" element={ <EditProjectPage /> } /> 
+
+        <Route path="/projects/edit/:projectId" element={ <IsPrivate><EditProjectPage /></IsPrivate> } /> 
 
         <Route path="/signup" element={ <SignupPage /> } />
         <Route path="/login" element={ <LoginPage /> } />
