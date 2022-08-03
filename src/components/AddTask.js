@@ -6,6 +6,8 @@ function AddTask(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
+
+  const storedToken = localStorage.getItem("authToken");
   
   const handleSubmit = (e) => {      //  <== UPDATE THE FUNCTION
     e.preventDefault();
@@ -16,7 +18,11 @@ function AddTask(props) {
     const requestBody = { title, description, projectId };
  
     axios
-      .post(`${process.env.REACT_APP_API_URL}/tasks`, requestBody)
+    .post(
+      `${process.env.REACT_APP_API_URL}/projects`, 
+      requestBody,
+      { headers: { Authorization: `Bearer ${storedToken}` } }
+  )
       .then((response) => {
         // Reset the state to clear the inputs
         setTitle("");
