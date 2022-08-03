@@ -8,6 +8,7 @@ import ProjectDetailsPage from "./pages/ProjectDetailsPage";
 import EditProjectPage from "./pages/EditProjectPage";
 
 import SignupPage from "./pages/SignupPage";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/projects/edit/:projectId" element={ <EditProjectPage /> } /> 
 
         <Route path="/signup" element={ <SignupPage /> } />
+        <Route path="/login" element={ <LoginPage /> } />
       </Routes>
       
     </div>

@@ -12,8 +12,11 @@ function Navbar() {
 
             {isLoggedIn && (
                 <>
-                     <NavLink to="/projects">Projects</NavLink> | 
+                    <NavLink to="/projects">Projects</NavLink> |
+                    <span> Hi, {user.name}</span>
+                    &nbsp;
                     <button>Logout</button>
+
                 </>
             )}
 
