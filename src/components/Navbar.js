@@ -1,31 +1,35 @@
-import { NavLink } from "react-router-dom";
 import { useContext } from "react";
-import { AuthContext } from "../context/auth.context";
+import { AuthContext } from "../context/auth.context"
 
-function Navbar() {
+import { NavLink } from "react-router-dom";
 
-    const { isLoggedIn, user } = useContext(AuthContext);
+function Navbar(){
+
+    const { isLoggedIn, user, logOutUser } = useContext(AuthContext); 
+
 
     return (
         <nav className="Navbar">
-            <NavLink to="/">Home</NavLink> |
 
+            <NavLink to="/">Home</NavLink> | 
+            
             {isLoggedIn && (
                 <>
-                    <NavLink to="/projects">Projects</NavLink> |
-                    <span> Hi, {user.name}</span>
+                    <NavLink to="/projects">Projects</NavLink> | 
+                    <span> Hi, {user && user.name}</span> 
                     &nbsp;
-                    <button>Logout</button>
-
+                    <button onClick={logOutUser}>Logout</button>
                 </>
             )}
 
             {!isLoggedIn && (
                 <>
-                    <NavLink to="/signup">Sign Up</NavLink> |
+                    <NavLink to="/signup">Sign Up</NavLink> | 
                     <NavLink to="/login">Login</NavLink>
                 </>
             )}
+
+
         </nav>
     );
 }

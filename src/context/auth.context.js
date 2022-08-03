@@ -15,7 +15,7 @@ function AuthProviderWrapper(props) {
 
 
     const authenticateUser = () => {
-        
+
         const storedToken = localStorage.getItem('authToken'); // Get the stored token from the localStorage
 
         // If the token exists in the localStorage
@@ -49,13 +49,24 @@ function AuthProviderWrapper(props) {
     }
 
 
+    const removeToken = () => {
+        localStorage.removeItem("authToken"); // Upon logout, remove the token from the localStorage
+    }
+
+
+    const logOutUser = () => {
+        removeToken(); // To log out the user, remove the token
+        authenticateUser(); // and update the state variables
+    }
+
+
     useEffect(() => {
         authenticateUser();
     }, []);
 
 
     return (
-        <AuthContext.Provider value={{ isLoggedIn, isLoading, user, storeToken }}>
+        <AuthContext.Provider value={{ isLoggedIn, isLoading, user, storeToken, authenticateUser, logOutUser }}>
             {props.children}
         </AuthContext.Provider>
     )
